@@ -29,6 +29,7 @@
     padding: 20px;
     font-size: 100%;
     text-alignment: center;
+    cursor: pointer;
   }
 
   .box > A {
@@ -37,10 +38,6 @@
     text-alignment: center;
     text-decoration: none;
     display: block;
-  }
-  .box > A:active,
-  .box > A:hover {
-    background-color: yellow;
   }
 
   .a {
@@ -71,12 +68,7 @@
 </head>
 <body onload="init();">
   <img src="images/godzilla-stamp.jpg" width="75%" style="margin: 40px 10px 30px 10px;"><br>
-  <audio id="player" src="godzilla.m4a" controls="" preload="auto" style="width: 100%; visibility: hidden;" autoplay>
-    Your browser does not support Godzilla's audio.
-    <a href="godzilla.m4a">Try playing audio this way instead.</a>
-  </audio>
-
-  <h3>Godzilla is feeling...</h3>
+  <h3 class="font-family: san-serif">Godzilla is feeling...</h3>
 
   <div class="wrapper">
     <div class="box a"><a id="buttonA">Happy</a></div>
@@ -87,10 +79,16 @@
     <div class="box f"><a id="buttonF">Charming</a></div>
   </div>
 
+  <audio id="player" src="godzilla.m4a" controls="" preload="auto" style="width: 100%; visibility: hidden;" autoplay>
+    Your browser does not support Godzilla's audio.
+    <a href="godzilla.m4a">Try playing audio this way instead.</a>
+  </audio>
+
   <script>
     const init = () => {
       const playAudio = () => {
         var playerEl = document.getElementById("player");
+        playerEl.currentTime = 0;
         playerEl.play();
       }
 
