@@ -5,9 +5,104 @@
   <title>Go go, Godzilla!</title>
   <meta name="description" content="Godzilla Roar">
   <meta name="author" content="Paul Brady">
+  <style>
+  BODY {
+    color: white;
+    font: "Garamond", "serif" !important;
+    background: darkgreen;
+    text-align: center;
+    margin: 20px 60px;
+  }
+  
+  .wrapper {
+    display: grid;
+    text-alignment: center;
+    grid-gap: 10px;
+    grid-template-columns: [col] 50% [col] 50%;
+    grid-template-rows:    [row] auto [row] auto [row];
+    color: #444;
+  }
+
+  .box {
+    background-color: lightyellow;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 100%;
+    text-alignment: center;
+  }
+
+  .box > A {
+    color: #444;
+    font-size: 200%;
+    text-alignment: center;
+    text-decoration: none;
+    display: block;
+  }
+  .box > A:active,
+  .box > A:hover {
+    background-color: yellow;
+  }
+
+  .a {
+    grid-column: col / span 1;
+    grid-row: row / span 1;
+  }
+  .b {
+    grid-column: col 2 / span 1;
+    grid-row: row / span 1;
+  }
+  .c {
+    grid-column: col / span 1;
+    grid-row: row 2 / span 1;
+  }
+  .d {
+    grid-column: col 2 / span 1;
+    grid-row: row 2 / span 1;
+  }
+  .e {
+    grid-column: col / span 1;
+    grid-row: row 3 / span 1;
+  }
+  .f {
+    grid-column: col 2 / span 1;
+    grid-row: row 3 / span 1;
+  }
+  </style>
 </head>
-<body style="background: darkgreen; text-align: center;">
+<body onload="init();">
   <img src="images/godzilla-stamp.jpg" width="75%" style="margin: 40px 10px 30px 10px;"><br>
-  <audio id="player" src="godzilla.m4a" controls="controls" style="width: 100%;" autoplay></audio>
+  <audio id="player" src="godzilla.m4a" controls="" preload="auto" style="width: 100%; visibility: hidden;" autoplay>
+    Your browser does not support Godzilla's audio.
+    <a href="godzilla.m4a">Try playing audio this way instead.</a>
+  </audio>
+
+  <h3>Godzilla is feeling...</h3>
+
+  <div class="wrapper">
+    <div class="box a"><a id="buttonA">Happy</a></div>
+    <div class="box b"><a id="buttonB">Sad</a></div>
+    <div class="box c"><a id="buttonC">Hungry</a></div>
+    <div class="box d"><a id="buttonD">Playful</a></div>
+    <div class="box e"><a id="buttonE">Snapish</a></div>
+    <div class="box f"><a id="buttonF">Charming</a></div>
+  </div>
+
+  <script>
+    const init = () => {
+      const playAudio = () => {
+        var playerEl = document.getElementById("player");
+        playerEl.play();
+      }
+
+      document.getElementById("buttonA").addEventListener('click', () => { playAudio(); })
+      document.getElementById("buttonB").addEventListener('click', () => { playAudio(); })
+      document.getElementById("buttonC").addEventListener('click', () => { playAudio(); })
+      document.getElementById("buttonD").addEventListener('click', () => { playAudio(); })
+      document.getElementById("buttonE").addEventListener('click', () => { playAudio(); })
+      document.getElementById("buttonF").addEventListener('click', () => { playAudio(); })
+
+    }
+  </script>
+
 </body>
 </html>
